@@ -6,7 +6,6 @@ namespace AS2324._3G.Prof.RubricaWF
 
         int nRecordInseriti = 0;
 
-        int cont = 0;
 
         // definizione array paralleli
         string[] cognome = new string[nMaxContatti];
@@ -22,7 +21,8 @@ namespace AS2324._3G.Prof.RubricaWF
 
         private void btnRicerca_Click(object sender, EventArgs e)
         {
-            if (cmbRicerca.Text == "" || txtRicerca.Text == "" || cmbOpzioni.Text == "")
+            lstElenco.Items.Clear();
+            if (cmbRicerca.Text == "" || txtRicerca.Text == "" )
                 MessageBox.Show("E' necessario definire il campo di ricerca.");
             string elenco;
             switch (cmbRicerca.Text )
@@ -159,7 +159,7 @@ namespace AS2324._3G.Prof.RubricaWF
             }
             else
             {
-                cognome[cont] = txtCognome.Text;
+                cognome[nRecordInseriti] = txtCognome.Text;
                 controllo = true;
             }
 
@@ -170,7 +170,7 @@ namespace AS2324._3G.Prof.RubricaWF
             }
             else
             {
-                nome[cont] = txtNome.Text;
+                nome[nRecordInseriti] = txtNome.Text;
                 controllo = true;
             }
 
@@ -181,7 +181,7 @@ namespace AS2324._3G.Prof.RubricaWF
             }
             else
             {
-                email[cont] = txtEmail.Text;
+                email[nRecordInseriti] = txtEmail.Text;
                 controllo = true;
             }
 
@@ -192,7 +192,7 @@ namespace AS2324._3G.Prof.RubricaWF
             }
             else
             {
-                nickname[cont] = txtNickName.Text;
+                nickname[nRecordInseriti] = txtNickName.Text;
                 controllo = true;
             }
 
@@ -203,7 +203,7 @@ namespace AS2324._3G.Prof.RubricaWF
             }
             else
             {
-                annoNascita[cont] = Convert.ToInt32(txtAnnoNascita.Text);
+                annoNascita[nRecordInseriti] = Convert.ToInt32(txtAnnoNascita.Text);
                 controllo = true;
             }
 
@@ -214,13 +214,12 @@ namespace AS2324._3G.Prof.RubricaWF
             }
             else
             {
-                simpatia[cont] = Convert.ToInt32(cmbSimpatia.Text);
+                simpatia[nRecordInseriti] = Convert.ToInt32(cmbSimpatia.Text);
                 controllo = true;
             }
 
             if (controllo == true)
             {
-                cont++;
                 nRecordInseriti++;
                 lblNRecord.Text = $"N. record inseriti : {nRecordInseriti}";
             }
