@@ -46,11 +46,11 @@
             groupBox2 = new GroupBox();
             btnRicerca = new Button();
             lstElenco = new ListBox();
-            cmbOpzioni = new ComboBox();
             cmbRicerca = new ComboBox();
             btnElenca = new Button();
             label7 = new Label();
             txtRicerca = new TextBox();
+            cmbOpzioni = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -197,9 +197,9 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(cmbOpzioni);
             groupBox2.Controls.Add(btnRicerca);
             groupBox2.Controls.Add(lstElenco);
-            groupBox2.Controls.Add(cmbOpzioni);
             groupBox2.Controls.Add(cmbRicerca);
             groupBox2.Controls.Add(btnElenca);
             groupBox2.Controls.Add(label7);
@@ -229,15 +229,6 @@
             lstElenco.Name = "lstElenco";
             lstElenco.Size = new Size(639, 140);
             lstElenco.TabIndex = 3;
-            // 
-            // cmbOpzioni
-            // 
-            cmbOpzioni.FormattingEnabled = true;
-            cmbOpzioni.Items.AddRange(new object[] { "Inizia per", "Finisce per", "Contiene" });
-            cmbOpzioni.Location = new Point(354, 25);
-            cmbOpzioni.Name = "cmbOpzioni";
-            cmbOpzioni.Size = new Size(103, 25);
-            cmbOpzioni.TabIndex = 2;
             // 
             // cmbRicerca
             // 
@@ -273,6 +264,15 @@
             txtRicerca.Name = "txtRicerca";
             txtRicerca.Size = new Size(156, 25);
             txtRicerca.TabIndex = 1;
+            // 
+            // cmbOpzioni
+            // 
+            cmbOpzioni.FormattingEnabled = true;
+            cmbOpzioni.Items.AddRange(new object[] { "Inizia per", "Finisce per", "Contiene" });
+            cmbOpzioni.Location = new Point(361, 27);
+            cmbOpzioni.Name = "cmbOpzioni";
+            cmbOpzioni.Size = new Size(101, 25);
+            cmbOpzioni.TabIndex = 5;
             // 
             // Form1
             // 
@@ -313,7 +313,7 @@
         private TextBox txtRicerca;
         private Button btnRicerca;
         private ComboBox cmbRicerca;
-        private ComboBox cmbOpzioni;
         private Label lblNRecord;
+        private ComboBox cmbOpzioni;
     }
 }

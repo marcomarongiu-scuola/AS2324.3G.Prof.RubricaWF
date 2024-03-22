@@ -22,8 +22,130 @@ namespace AS2324._3G.Prof.RubricaWF
 
         private void btnRicerca_Click(object sender, EventArgs e)
         {
-            if (cmbRicerca.Text == "")
+            if (cmbRicerca.Text == "" || txtRicerca.Text == "" || cmbOpzioni.Text == "")
                 MessageBox.Show("E' necessario definire il campo di ricerca.");
+            string elenco;
+            switch (cmbRicerca.Text )
+            {
+                case "Nome": 
+                    for (int i = 0; i < nRecordInseriti; i++)
+                    {
+                        switch (cmbOpzioni.Text)
+                        {
+                            case "":
+                                if (txtRicerca.Text == nome[i])
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Inizia per":
+                                if (nome[i].StartsWith(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Finisce per":
+                                if (nome[i].EndsWith(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Contiene":
+                                if (nome[i].Contains(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        
+                    }
+                    break;
+                case "Cognome":
+                    for (int i = 0; i < nRecordInseriti; i++)
+                    {
+                        switch (cmbOpzioni.Text)
+                        {
+                            case "":
+                                if (txtRicerca.Text == cognome[i])
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Inizia per":
+                                if (cognome[i].StartsWith(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Finisce per":
+                                if (cognome[i].EndsWith(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Contiene":
+                                if (cognome[i].Contains(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    break;
+                case "Nickname":
+                    for (int i = 0; i < nRecordInseriti; i++)
+                    {
+                        switch (cmbOpzioni.Text)
+                        {
+                            case "":
+                                if (txtRicerca.Text == nickname[i])
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Inizia per":
+                                if (nickname[i].StartsWith(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Finisce per":
+                                if (nickname[i].EndsWith(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            case "Contiene":
+                                if (nickname[i].Contains(txtRicerca.Text))
+                                {
+                                    elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
+                                    lstElenco.Items.Add(elenco);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void btnAggiungi_Click(object sender, EventArgs e)
@@ -96,7 +218,7 @@ namespace AS2324._3G.Prof.RubricaWF
                 controllo = true;
             }
 
-            if (controllo == true)  
+            if (controllo == true)
             {
                 cont++;
                 nRecordInseriti++;
@@ -109,12 +231,14 @@ namespace AS2324._3G.Prof.RubricaWF
             lstElenco.Items.Clear();
             string elenco;
             //ciclo per stampare l'elenco
-            for(int i = 0; i < nRecordInseriti; i++)
+            for (int i = 0; i < nRecordInseriti; i++)
             {
                 elenco = $"nome: {nome[i]}; cognome: {cognome[i]}; nickname: {nickname[i]}; email: {email[i]}; annoNascita {annoNascita[i]}; simpatia: {simpatia[i]}";
                 lstElenco.Items.Add(elenco);
             }
-            
+
         }
+
+
     }
 }
