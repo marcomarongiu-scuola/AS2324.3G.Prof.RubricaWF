@@ -25,11 +25,12 @@ namespace AS2324._3G.Prof.RubricaWF
             if (cmbRicerca.Text == "" || txtRicerca.Text == "" )
                 MessageBox.Show("E' necessario definire il campo di ricerca.");
             string elenco;
-            switch (cmbRicerca.Text )
+            
+            for (int i = 0;i < nRecordInseriti; i++)
             {
-                case "Nome": 
-                    for (int i = 0; i < nRecordInseriti; i++)
-                    {
+                switch (cmbRicerca.Text)
+                {
+                    case "Nome":
                         switch (cmbOpzioni.Text)
                         {
                             case "":
@@ -63,12 +64,8 @@ namespace AS2324._3G.Prof.RubricaWF
                             default:
                                 break;
                         }
-                        
-                    }
-                    break;
-                case "Cognome":
-                    for (int i = 0; i < nRecordInseriti; i++)
-                    {
+                        break;
+                    case "Cognome":
                         switch (cmbOpzioni.Text)
                         {
                             case "":
@@ -102,11 +99,8 @@ namespace AS2324._3G.Prof.RubricaWF
                             default:
                                 break;
                         }
-                    }
-                    break;
-                case "Nickname":
-                    for (int i = 0; i < nRecordInseriti; i++)
-                    {
+                        break;
+                    case "Nickname":
                         switch (cmbOpzioni.Text)
                         {
                             case "":
@@ -140,11 +134,11 @@ namespace AS2324._3G.Prof.RubricaWF
                             default:
                                 break;
                         }
-                    }
-                    break;
+                        break;
+                    default:
+                        break;
 
-                default:
-                    break;
+                }
             }
         }
 
@@ -154,8 +148,7 @@ namespace AS2324._3G.Prof.RubricaWF
 
             if (txtCognome.Text == "")
             {
-                MessageBox.Show("E' necessario definire il campo di ricerca.");
-                controllo = false;
+                goto controlloFalse;
             }
             else
             {
@@ -165,8 +158,7 @@ namespace AS2324._3G.Prof.RubricaWF
 
             if (txtNome.Text == "")
             {
-                MessageBox.Show("E' necessario definire il campo di ricerca.");
-                controllo = false;
+                goto controlloFalse;
             }
             else
             {
@@ -176,8 +168,7 @@ namespace AS2324._3G.Prof.RubricaWF
 
             if (txtEmail.Text == "")
             {
-                MessageBox.Show("E' necessario definire il campo di ricerca.");
-                controllo = false;
+                goto controlloFalse;
             }
             else
             {
@@ -187,8 +178,7 @@ namespace AS2324._3G.Prof.RubricaWF
 
             if (txtNickName.Text == "")
             {
-                MessageBox.Show("E' necessario definire il campo di ricerca.");
-                controllo = false;
+                goto controlloFalse;
             }
             else
             {
@@ -198,8 +188,7 @@ namespace AS2324._3G.Prof.RubricaWF
 
             if (txtAnnoNascita.Text == "")
             {
-                MessageBox.Show("E' necessario definire il campo di ricerca.");
-                controllo = false;
+                goto controlloFalse;
             }
             else
             {
@@ -209,19 +198,22 @@ namespace AS2324._3G.Prof.RubricaWF
 
             if (cmbSimpatia.Text == "")
             {
-                MessageBox.Show("E' necessario definire il campo di ricerca.");
-                controllo = false;
+                goto controlloFalse;
             }
             else
             {
                 simpatia[nRecordInseriti] = Convert.ToInt32(cmbSimpatia.Text);
                 controllo = true;
             }
-
+            controlloFalse:
             if (controllo == true)
             {
                 nRecordInseriti++;
                 lblNRecord.Text = $"N. record inseriti : {nRecordInseriti}";
+            }
+            else
+            {
+                MessageBox.Show("E' necessario definire il campo di ricerca.");
             }
         }
 
